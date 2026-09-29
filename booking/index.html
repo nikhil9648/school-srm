@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maurya Hotel and Restaurant - Sansaripur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap');
+
+        :root {
+            --primary: #846733;
+            --primary-light: #a68b5a;
+            --secondary: #1a1a1a;
+            --accent: #d4af37;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Receipt Original Format Styling */
+        .receipt-container {
+            width: 100%;
+            max-width: 148mm;
+            min-height: 210mm;
+            padding: 10mm;
+            margin: 20px auto;
+            background: #fff;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid #ddd;
+        }
+
+        .receipt-paper {
+            background: white;
+            padding: 24px;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Gold Gradient Header for Receipt */
+        .receipt-header-strip {
+            background: linear-gradient(135deg, #846733 0%, #d4af37 100%);
+            height: 8px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-receipt {
+            animation: slideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        @media print {
+            body * { visibility: hidden; }
+            #receiptContent, #receiptContent * { visibility: visible; }
+            #receiptContent {
+                position: fixed;
+                left: 0;
+                top: 0;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                box-shadow: none;
+                border: none;
+            }
+            .no-print { display: none !important; }
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #846733;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 custom-scrollbar">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-[#846733] rounded-full flex items-center justify-center text-white shadow-lg overflow-hidden">
+                         <img src="image.png" alt="M" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<i class=\'fas fa-hotel\'></i>'">
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tighter text-[#846733] block leading-none">MAURYA HOTEL AND RESTAURANT</span>
+                        <span class="text-[9px] uppercase tracking-[0.3em] text-gray-400 font-bold">Sansaripur, Amethi</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-semibold hover:text-[#846733] transition">HOME</a>
+                    <a href="#booking" class="bg-[#846733] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#6d552a] transition shadow-md">RESERVE NOW</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-gradient h-screen flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl animate-receipt">
+            <h2 class="text-[#d4af37] tracking-[0.5em] text-sm font-bold mb-4 uppercase">Welcome to Excellence</h2>
+            <h1 class="serif text-6xl md:text-8xl mb-6 leading-tight">Maurya Hotel And Restaurant</h1>
+            <p class="text-lg md:text-xl font-light mb-10 opacity-80 max-w-xl mx-auto">Experience the finest hospitality and culinary delights in the heart of Sansaripur Trisundi.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#booking" class="bg-[#d4af37] text-black px-10 py-4 rounded-full font-bold hover:bg-white transition-all shadow-xl">Book Your Stay</a>
+                <a href="tel:9918868227" class="bg-white/10 backdrop-blur-md border border-white/20 px-10 py-4 rounded-full font-bold hover:bg-white/20 transition-all">
+                    <i class="fas fa-phone mr-2"></i> 9918868227
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="py-24 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Form Area -->
+                <div class="lg:col-span-7 bg-white p-8 md:p-12 rounded-[2rem] shadow-xl border border-gray-100">
+                    <h2 class="serif text-4xl mb-8">Reservation Desk</h2>
+                    <form id="bookingForm" class="space-y-8">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold uppercase text-gray-400 tracking-widest">Guest Name</label>
+                                <input type="text" id="guestName" required class="w-full border-b-2 border-gray-100 focus:border-[#846733] py-2 outline-none transition-all text-lg placeholder:text-gray-200" placeholder="Full Name">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold uppercase text-gray-400 tracking-widest">Phone Number</label>
+                                <input type="tel" id="guestPhone" required class="w-full border-b-2 border-gray-100 focus:border-[#846733] py-2 outline-none transition-all text-lg" placeholder="Mobile No.">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold uppercase text-gray-400 tracking-widest">Accommodation Type</label>
+                            <select id="roomType" class="w-full border-b-2 border-gray-100 focus:border-[#846733] py-2 outline-none bg-white text-lg">
+                                <option value="Standard Non-AC Room" data-price="1000">Standard Non-AC - ₹1000/night</option>
+                                <option value="Deluxe AC Room" data-price="2800">Deluxe AC Room - ₹2,800/night</option>
+                                <option value="Executive Luxury Suite" data-price="4500">Executive Luxury Suite - ₹4,500/night</option>
+                            </select>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-8">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold uppercase text-gray-400 tracking-widest">Check-In</label>
+                                <input type="date" id="checkIn" required class="w-full border-b-2 border-gray-100 focus:border-[#846733] py-2 outline-none">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold uppercase text-gray-400 tracking-widest">Check-Out</label>
+                                <input type="date" id="checkOut" required class="w-full border-b-2 border-gray-100 focus:border-[#846733] py-2 outline-none">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-[#1a1a1a] text-white py-5 rounded-2xl font-bold hover:bg-[#846733] transition-all shadow-lg uppercase tracking-widest text-sm">
+                            Generate Digital Invoice
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info Cards -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-[#846733] p-10 rounded-[2rem] text-white shadow-xl relative overflow-hidden">
+                        <i class="fas fa-quote-left absolute top-6 right-6 text-white/10 text-6xl"></i>
+                        <h3 class="serif text-2xl mb-4">Location & Contact</h3>
+                        <p class="text-white/80 mb-8 leading-relaxed">Sansaripur Trisundi, near Amethi Station Road, Amethi, Uttar Pradesh 227405</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center"><i class="fas fa-phone"></i></div>
+                                <span class="font-bold text-lg">+91 9918868227</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center"><i class="fas fa-envelope"></i></div>
+                                <span class="text-sm">mauryahotelandrestaurant@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm flex items-center gap-6">
+                        <div class="text-3xl text-[#846733]"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <h4 class="font-bold">Verified GST Vendor</h4>
+                            <p class="text-xs text-gray-400 font-mono mt-1">GSTIN: 09APCPM2964G2ZQ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Receipt Modal -->
+    <div id="receiptModal" class="fixed inset-0 bg-black/95 z-[100] hidden overflow-y-auto backdrop-blur-md p-4 flex flex-col items-center">
+        <div class="w-full max-w-2xl flex justify-between mb-6 no-print">
+            <button onclick="closeReceipt()" class="text-white/60 hover:text-white transition uppercase text-xs tracking-widest font-bold"><i class="fas fa-arrow-left mr-2"></i> Back</button>
+            <button onclick="window.print()" class="bg-white text-black px-6 py-2.5 rounded-full font-bold hover:bg-[#d4af37] transition shadow-lg"><i class="fas fa-print mr-2"></i> Print Invoice</button>
+        </div>
+
+        <div class="receipt-container animate-receipt" id="receiptContent">
+            <div class="receipt-header-strip"></div>
+            <div class="receipt-paper">
+                <!-- Receipt Header -->
+                <div class="flex justify-between items-start mb-8">
+                    <div class="flex items-center gap-3">
+                        <div class="w-16 h-16 bg-[#1a1a1a] rounded-lg flex items-center justify-center text-white text-2xl">
+                            <img src="image.png" alt="M" class="w-full h-full object-cover rounded-lg" onerror="this.parentElement.innerHTML='<i class=\'fas fa-hotel\'></i>'">
+                        </div>
+                        <div>
+                            <h2 class="serif text-xl font-black uppercase text-gray-900 leading-none">Maurya Hotel</h2>
+                            <p class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mt-1">Hospitality at its best</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="bg-black text-white px-3 py-1 text-[10px] font-black tracking-widest uppercase rounded">Tax Invoice</span>
+                        <p class="text-[10px] font-mono mt-2" id="rNo">INV-000000</p>
+                        <p class="text-[10px] text-gray-400 font-mono" id="rDate">00-00-0000</p>
+                    </div>
+                </div>
+
+                <!-- Info Grid -->
+                <div class="grid grid-cols-2 gap-8 mb-8 border-y border-gray-100 py-6">
+                    <div>
+                        <h4 class="text-[8px] font-black uppercase text-[#846733] mb-2 tracking-widest">Vendor Address</h4>
+                        <p class="text-[10px] leading-relaxed text-gray-600">Sansaripur Trisundi, Amethi,<br>Uttar Pradesh, India - 227405<br>GSTIN: 09APCPM2964G2QZ</p>
+                    </div>
+                    <div class="text-right">
+                        <h4 class="text-[8px] font-black uppercase text-[#846733] mb-2 tracking-widest">Billed To</h4>
+                        <p id="rGuestName" class="text-xs font-bold uppercase text-gray-900"></p>
+                        <p id="rGuestPhone" class="text-[10px] text-gray-500 font-mono"></p>
+                    </div>
+                </div>
+
+                <!-- Items Table -->
+                <div class="flex-grow">
+                    <table class="w-full">
+                        <thead class="border-b-2 border-gray-900">
+                            <tr class="text-[9px] font-black uppercase text-gray-900 tracking-widest">
+                                <th class="py-3 text-left">Description</th>
+                                <th class="py-3 text-center">Nights</th>
+                                <th class="py-3 text-right">Price</th>
+                                <th class="py-3 text-right">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="receiptTable" class="text-xs">
+                            <!-- JS injected -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Totals Section -->
+                <div class="mt-8 pt-6 border-t border-gray-100">
+                    <div class="flex justify-end">
+                        <div class="w-full max-w-[180px] space-y-2">
+                            <div class="flex justify-between text-[10px]">
+                                <span class="text-gray-400 uppercase font-bold">Taxable Value</span>
+                                <span id="rSubtotal" class="font-mono">₹0.00</span>
+                            </div>
+                            <div class="flex justify-between text-[10px]">
+                                <span class="text-gray-400 uppercase font-bold">SGST (5%)</span>
+                                <span id="rSgst" class="font-mono">₹0.00</span>
+                            </div>
+                            <div class="flex justify-between text-[10px]">
+                                <span class="text-gray-400 uppercase font-bold">CGST (5%)</span>
+                                <span id="rCgst" class="font-mono">₹0.00</span>
+                            </div>
+                            <div class="flex justify-between text-base font-black border-t border-gray-900 pt-2 mt-2">
+                                <span class="text-gray-900">TOTAL</span>
+                                <span id="rTotal" class="text-[#846733]">₹0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Sign -->
+                <div class="mt-auto pt-10 flex justify-between items-end">
+                    <div class="text-[8px] text-gray-400 leading-tight italic">
+                        * Computer generated invoice.<br>
+                        * Standard check-in/out: 12 PM.<br>
+                        * Amethi Jurisdiction only.
+                    </div>
+                    <div class="text-center w-32">
+                        <div class="h-px bg-gray-200 mb-2"></div>
+                        <p class="text-[8px] font-black uppercase tracking-widest">Authorized Sign</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t border-gray-100 py-12 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-gray-400 text-[10px] tracking-widest uppercase font-bold">&copy; 2024 Maurya Hotel & Restaurant Group</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set min date for date inputs
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkIn').min = today;
+        document.getElementById('checkOut').min = today;
+
+        // Auto-update checkout min based on checkin
+        document.getElementById('checkIn').addEventListener('change', (e) => {
+            document.getElementById('checkOut').min = e.target.value;
+        });
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('guestName').value;
+            const phone = document.getElementById('guestPhone').value;
+            const typeSelect = document.getElementById('roomType');
+            const typeName = typeSelect.value;
+            const price = parseFloat(typeSelect.options[typeSelect.selectedIndex].dataset.price);
+            
+            const checkInDate = new Date(document.getElementById('checkIn').value);
+            const checkOutDate = new Date(document.getElementById('checkOut').value);
+
+            // Calculation Logic
+            let nights = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+            if(nights <= 0) nights = 1; // Minimum 1 night charge
+
+            const subtotal = price * nights;
+            const gst = subtotal * 0.05;
+            const total = subtotal + (gst * 1);
+
+            // Populate Receipt
+            document.getElementById('rGuestName').innerText = name;
+            document.getElementById('rGuestPhone').innerText = phone;
+            document.getElementById('rDate').innerText = new Date().toLocaleDateString('en-GB');
+            document.getElementById('rNo').innerText = 'INV-' + Math.floor(100000 + Math.random() * 900000);
+
+            document.getElementById('receiptTable').innerHTML = `
+                <tr class="border-b border-gray-50">
+                    <td class="py-6">
+                        <p class="font-bold text-gray-900">${typeName}</p>
+                        <p class="text-[9px] text-gray-400 mt-1 uppercase tracking-tighter italic">
+                            Period: ${checkInDate.toLocaleDateString('en-GB')} - ${checkOutDate.toLocaleDateString('en-GB')}
+                        </p>
+                    </td>
+                    <td class="text-center font-mono">${nights}</td>
+                    <td class="text-right font-mono">₹${price.toLocaleString('en-IN')}</td>
+                    <td class="text-right font-bold text-gray-900">₹${subtotal.toLocaleString('en-IN')}</td>
+                </tr>
+            `;
+
+            document.getElementById('rSubtotal').innerText = '₹' + subtotal.toLocaleString('en-IN');
+            document.getElementById('rSgst').innerText = '₹' + gst.toLocaleString('en-IN');
+            // document.getElementById('rCgst').innerText = '₹' + gst.toLocaleString('en-IN');
+            document.getElementById('rTotal').innerText = '₹' + total.toLocaleString('en-IN');
+
+            // Show Modal
+            document.getElementById('receiptModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeReceipt() {
+            document.getElementById('receiptModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ग्राम प्रधान संसारपुर - अखिलेश मौर्य | आधिकारिक वेबसाइट</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            /* Light Mode */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --primary-green: #10b981;
+            --secondary-green: #059669;
+            --accent-gold: #f59e0b;
+            --accent-orange: #f97316;
+            --accent-purple: #8b5cf6;
+            --accent-blue: #3b82f6;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-lg: 0 25px 60px rgba(0,0,0,0.12);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Mode */
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --shadow: 0 10px 30px rgba(0,0,0,0.4);
+            --shadow-lg: 0 25px 60px rgba(0,0,0,0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            transition: all 0.3s ease;
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-green), var(--accent-gold));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Header */
+        header {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            color: var(--text-primary);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(30,41,59,0.95);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-green), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 2.2rem;
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange));
+            padding: 8px;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--primary-green);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(16,185,129,0.9) 0%, 
+                rgba(5,150,105,0.8) 50%,
+                rgba(139,92,246,0.7) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-main {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+            max-width: 1200px;
+        }
+
+        .pradhan-photo {
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .pradhan-photo img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .pradhan-photo:hover img {
+            transform: scale(1.05);
+        }
+
+        .pradhan-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange));
+            color: var(--dark-green);
+            padding: 0.5rem 2.5rem 0.5rem 1.5rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transform: rotate(45deg);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, white, #fef3c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero-content .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.95);
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange));
+            color: var(--dark-green);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: rgba(255,255,255,0.8);
+        }
+
+        .btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Floating Elements */
+        .floating {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .floating:nth-child(1) { top: 15%; left: 5%; animation-delay: 0s; }
+        .floating:nth-child(2) { top: 70%; right: 10%; animation-delay: 2s; }
+        .floating:nth-child(3) { bottom: 15%; left: 15%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(5deg); }
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-card {
+            padding: 2.5rem 1.5rem;
+            background: var(--card-bg);
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--primary-green), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            margin-bottom: 4rem;
+            position: relative;
+            background: linear-gradient(45deg, var(--primary-green), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+            border-radius: 3px;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.4s;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange), var(--accent-purple));
+        }
+
+        .feature-card:nth-child(1)::before { background: linear-gradient(90deg, var(--primary-green), var(--secondary-green)); }
+        .feature-card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange)); }
+        .feature-card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); }
+        .feature-card:nth-child(4)::before { background: linear-gradient(90deg, var(--accent-orange), var(--primary-green)); }
+        .feature-card:nth-child(5)::before { background: linear-gradient(90deg, var(--primary-green), var(--accent-gold)); }
+        .feature-card:nth-child(6)::before { background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue)); }
+
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-card:nth-child(1) .feature-icon { background: linear-gradient(45deg, var(--primary-green), var(--secondary-green)); color: white; }
+        .feature-card:nth-child(2) .feature-icon { background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange)); color: white; }
+        .feature-card:nth-child(3) .feature-icon { background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple)); color: white; }
+        .feature-card:nth-child(4) .feature-icon { background: linear-gradient(45deg, var(--accent-orange), var(--primary-green)); color: white; }
+        .feature-card:nth-child(5) .feature-icon { background: linear-gradient(45deg, var(--primary-green), var(--accent-gold)); color: white; }
+        .feature-card:nth-child(6) .feature-icon { background: linear-gradient(45deg, var(--accent-purple), var(--accent-blue)); color: white; }
+
+        .feature-card:hover {
+            transform: translateY(-18px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Gallery */
+        .gallery {
+            background: var(--bg-secondary);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            height: 280px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.4s;
+            backdrop-filter: blur(5px);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            padding: 3rem 2.5rem;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            height: fit-content;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            transition: all 0.4s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(12px);
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item i {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(45deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1.3rem 1.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 18px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 4px rgba(16,185,129,0.1);
+            background: var(--card-bg);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #065f46, var(--primary-green));
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange), var(--accent-purple), var(--accent-gold));
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { background-position: -200%; }
+            100% { background-position: 200%; }
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transition: all 0.4s;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .social-links a:hover {
+            background: white;
+            transform: translateY(-8px) scale(1.15);
+            box-shadow: 0 15px 35px rgba(255,255,255,0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-main {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .pradhan-photo { max-width: 350px; margin: 0 auto; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { min-width: 280px; }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 100px);
+                background: var(--card-bg);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 4rem;
+                transform: translateX(-100%);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-right { display: none; }
+
+            .contact-grid { grid-template-columns: 1fr; }
+            section { padding: 4rem 1rem; }
+            nav { padding: 0 1rem; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .pradhan-photo img { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">
+                <i class="fas fa-seedling"></i>
+                ग्राम प्रधान संसारपुर
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">होम</a></li>
+                    <li><a href="#about">हमारे बारे में</a></li>
+                    <li><a href="#services">सेवाएँ</a></li>
+                    <li><a href="#gallery">गैलरी</a></li>
+                    <li><a href="#contact">संपर्क</a></li>
+                </ul>
+                <a href="tel:+919876543210" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> व्हाट्सएप
+                </a>
+                <button class="theme-toggle" id="themeToggle" title="थीम बदलें">
+                    <i class="fas fa-sun"></i>
+                    <span>मोड</span>
+                </button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="floating"><i class="fas fa-leaf" style="font-size: 3.5rem;"></i></div>
+        <div class="floating"><i class="fas fa-seedling" style="font-size: 4.5rem;"></i></div>
+        <div class="floating"><i class="fas fa-sun" style="font-size: 4rem;"></i></div>
+        
+        <div class="hero-content">
+            <h1>श्री अखिलेश मौर्य जी</h1>
+            <p class="subtitle">ग्राम प्रधान | संसारपुर गाँव<br><strong style="font-size: 1.3em;">"गाँव का विकास, हमारा संकल्प"</strong></p>
+            
+            <div class="hero-main">
+                <div>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-phone"></i> अभी संपर्क करें
+                        </a>
+                        <a href="#services" class="btn btn-secondary">
+                            <i class="fas fa-list-check"></i> हमारी सेवाएँ
+                        </a>
+                    </div>
+                </div>
+                <div class="pradhan-photo">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face&q=85" alt="श्री अखिलेश मौर्य - ग्राम प्रधान संसारपुर" loading="lazy">
+                    <div class="pradhan-badge">ग्राम प्रधान</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">750+</span>
+                <h3>लाभार्थी</h3>
+                <p>सरकारी योजनाओं से लाभान्वित परिवार</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">35+</span>
+                <h3>विकास कार्य</h3>
+                <p>पूरा हो चुके प्रोजेक्ट्स</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">24×7</span>
+                <h3>उपलब्ध</h3>
+                <p>हमेशा सेवा के लिए तैयार</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <h3>संतुष्टि</h3>
+                <p>ग्रामीण भाइयों का विश्वास</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">हमारे बारे में</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>अखिलेश मौर्य</h3>
+                <p>25+ वर्षों का अनुभव। गाँव के समग्र विकास के लिए समर्पित कार्यकर्ता।</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>विश्वास का प्रतीक</h3>
+                <p>ग्रामीणों का पूर्ण विश्वास और अटूट सहयोग।</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>निरंतर विकास</h3>
+                <p>हर वर्ष नई ऊँचाइयों को छूते विकास कार्य।</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>सेवा भावना</h3>
+                <p>सभी ग्रामीणों की सेवा ही हमारा धर्म।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" style="background: var(--bg-secondary);">
+        <h2 class="section-title">हमारी सेवाएँ</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>पीएम आवास योजना</h3>
+                <p>घरों का निर्माण और आवेदन प्रक्रिया में पूर्ण सहायता।</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-road"></i>
+                </div>
+                <h3>सड़क निर्माण</h3>
+                <p>गाँव की सभी गलियों में पक्की सड़कों का निर्माण।</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>स्ट्रीट लाइट</h3>
+                <p>LED स्ट्रीट लाइट्स से पूर्णतः उज्ज्वल संसारपुर।</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-file-certificate"></i>
+                </div>
+                <h3>प्रमाण पत्र</h3>
+                <p>आय, जाति, निवास प्रमाण पत्र 24 घंटे में जारी।</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hand-holding-water"></i>
+                </div>
+                <h3>जल संरक्षण</h3>
+                <p>तलाइया निर्माण और वर्षा जल संचयन व्यवस्था।</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-recycle"></i>
+                </div>
+                <h3>स्वच्छ भारत</h3>
+                <p>स्वच्छता अभियान और कचरा प्रबंधन व्यवस्था।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2 class="section-title">हमारे कार्यों की झलक</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: linear-gradient(45deg, #10b981, #059669);"></div>
+            <div class="gallery-item" style="background-image: linear-gradient(45deg, #f59e0b, #f97316);"></div>
+            <div class="gallery-item" style="background-image: linear-gradient(45deg, #3b82f6, #8b5cf6);"></div>
+            <div class="gallery-item" style="background-image: linear-gradient(45deg, #10b981, #f59e0b);"></div>
+            <div class="gallery-item" style="background-image: linear-gradient(45deg, #f97316, #ef4444);"></div>
+            <div class="gallery-item" style="background-image: linear-gradient(45deg, #8b5cf6, #ec4899);"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">तुरंत संपर्क करें</h2>
+        <div class="contact-grid">
+            <div>
+                <div class="contact-card">
+                    <h3 style="margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-map-marker-alt" style="color: var(--primary-green); font-size: 1.5rem;"></i>
+                        प्रधान कार्यालय
+                    </h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>पूरा पता:</strong><br>
+                            ग्राम प्रधान कार्यालय<br>
+                            संसारपुर, [तहसील नाम], [जिला नाम]<br>
+                            उत्तर प्रदेश - XXXXXX
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>मोबाइल:</strong><br>
+                            <a href="tel:+919876543210" style="color: var(--primary-green); font-weight: 600;">+91 98765 43210</a><br>
+                            <a href="tel:+919876543211" style="color: var(--primary-green); font-weight: 600;">+91 98765 43211</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>ईमेल:</strong><br>
+                            <a href="mailto:grampradhan.sansaripur@gmail.com" style="color: var(--primary-green);">grampradhan.sansaripur@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>कार्यालय समय:</strong><br>
+                            सोम-शनि: 09:00 AM - 06:00 PM<br>
+                            <small>आपातकालीन: 24×7</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <form class="contact-card contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="📝 आपका पूरा नाम *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="📱 मोबाइल नंबर *" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">🎯 विषय चुनें</option>
+                            <option value="yojna">🏠 सरकारी योजना</option>
+                            <option value="vikas">🛣️ विकास कार्य</option>
+                            <option value="pramanpatra">📜 प्रमाण पत्र</option>
+                            <option value="shikayat">⚠️ शिकायत</option>
+                            <option value="suggestion">💡 सुझाव</option>
+                            <option value="other">❓ अन्य</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="6" placeholder="💬 आपकी समस्या/सुझाव विस्तार से लिखें *" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem;">
+                        <i class="fas fa-paper-plane"></i> संदेश भेजें 🚀
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">🌱 ग्राम प्रधान संसारपुर</h4>
+                <p>गाँव का विकास, हमारा संकल्प।<br>सभी सरकारी योजनाओं का लाभ अंतिम व्यक्ति तक।</p>
+            </div>
+            <div>
+                <h4>📞 त्वरित संपर्क</h4>
+                <p><i class="fas fa-phone"></i> 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> grampradhan.sansaripur@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> संसारपुर, उत्तर प्रदेश</p>
+            </div>
+            <div>
+                <h4>🔗 उपयोगी लिंक</h4>
+                <p><a href="#home" style="color: #fef3c7;">🏠 होम</a></p>
+                <p><a href="#services" style="color: #fef3c7;">📋 सेवाएँ</a></p>
+                <p><a href="#gallery" style="color: #fef3c7;">📸 गैलरी</a></p>
+                <p><a href="#contact" style="color: #fef3c7;">📞 संपर्क</a></p>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="https://wa.me/919876543210" target="_blank" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" target="_blank" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" target="_blank" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        <p style="margin-top: 2.5rem; opacity: 0.9; font-size: 0.95rem;">
+            &copy; 2024 ग्राम प्रधान अखिलेश मौर्य | संसारपुर | सभी अधिकार सुरक्षित | 
+            <strong>Designed with ❤️ for Sansaripur Gram Panchayat</strong>
+        </p>
+    </footer>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Dark/Light Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', savedTheme);
+        updateThemeToggle(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeToggle(newTheme);
+        });
+
+        function updateThemeToggle(theme) {
+            const icon = themeToggle.querySelector('i');
+            const text = themeToggle.querySelector('span');
+            
+            if (theme === 'dark') {
+                icon.className = 'fas fa-sun';
+                text.textContent = 'हल्का';
+            } else {
+                icon.className = 'fas fa-moon';
+                text.textContent = 'गहरा';
+            }
+        }
+
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form Submission with Animation
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> भेजा जा रहा है...';
+            btn.disabled = true;
+            btn.style.opacity = '0.8';
+            
+            setTimeout(() => {
+                alert('🎉 धन्यवाद!\n\nआपका संदेश सफलतापूर्वक भेज दिया गया।\nहम 24 घंटे के अंदर संपर्क करेंगे।\n\n📱 व्हाट्सएप: 98765 43210');
+                this.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                btn.style.opacity = '1';
+            }, 2500);
+        });
+
+        // WhatsApp Auto-Message
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const phone = link.getAttribute('href').replace('tel:', '');
+                const message = 'नमस्ते श्री अखिलेश मौर्य जी,%0A%0Aमैं संसारपुर गाँव का निवासी हूँ।%0Aमुझे आपसे मिलना है। कृपया समय बताएं।%0A%0Aधन्यवाद!';
+                window.open(`https://wa.me/91${phone}?text=${message}`, '_blank');
+            });
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.feature-card, .stat-card, .gallery-item, .contact-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px) scale(0.95)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+
+        // Parallax effect for hero image
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImg = document.querySelector('.pradhan-photo img');
+            if (heroImg) {
+                heroImg.style.transform = `translateY(${scrolled * 0.5}px) scale(1.02)`;
+            }
+        });
+    </script>
+</body>
+</html>

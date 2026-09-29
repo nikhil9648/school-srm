@@ -1,0 +1,178 @@
+.student_dashboard{
+    display: flex;
+    justify-content: center;
+    padding: 14px;
+    gap: 15px;
+    /* background-color: rgb(255, 255, 255); */
+}
+.section1{
+    width: 230px;
+    background-color: rgb(148, 59, 230);
+    border-radius: 12px;
+    max-height: 100vh;
+    /* position:static; */
+    /* top: 10; */
+}
+.section1 .stu_das_logo{
+    width: 112px;
+    /* height: 120px; */
+    background-color: rgb(85, 5, 160);
+    margin: auto;
+    margin-top: 50px;
+    padding: 13px;
+    border-radius: 10px;
+}
+.student_main{
+    width: 85vw;
+    /* position: sticky; */
+    /* overflow: scroll; */
+}
+.student_main .navbar .student_personaldetails{
+    /* overflow-y: scroll; */
+}
+.student_profile{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.student_profile img{
+    width: 45px;
+    height: 45px;
+    border: 3px solid rgb(148, 59, 230);
+    border-radius: 50%;
+}
+.student_profile .nameinfo{
+    width: 130px;
+}
+.student_profile .nameinfo h6{
+    margin-bottom: 0px;
+}
+.student_profile .nameinfo p{
+    margin: 0px 0px;
+}
+.loggedin{
+    position: fixed;
+    z-index: 1;
+    right:380px;
+    top: 15px;
+}
+.namesection{
+    height: 36vh;
+    background-color: rgb(148, 59, 230);
+    border-radius: 10px;
+    display: flex;
+    /* gap: 20vw; */
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+.namesection .dateandname{
+    color: white;
+    left: 0;
+    margin: 10px 0px;
+    padding: 0px 4px;
+
+    /* margin-left: -45px; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 50px;
+}
+.namesection .dateandname p{
+    /* font-size: 1rem; */
+    /* margin-top: -40px; */
+}
+.namesection .dateandname .welcome_stu p{
+    /* margin-top: 0px; */
+    margin-bottom: 0px;
+}
+.namesection .dateandname h3{
+    /* font-size: 2rem; */
+}
+.namesection img{
+    width: 17vw;
+}
+.menu svg{
+    width: 30px;
+}
+.offcanvas{
+    background-color: rgb(148, 59, 230);
+    color: white;
+    width: 280px;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.offcanvas-body ul a li{
+    list-style: none;
+    width: 100%;
+    /* padding: 0px 15px; */
+    margin: 0px 3px;
+    gap: 10px;
+    padding: 8px;
+}
+.offcanvas-body ul li span svg{
+    width: 20px;
+}
+/* .offcanvas-body ul li:hover{
+    color: red;
+} */
+/* .offcanvas-body ul li .nav-link{
+    color: white;
+    padding: 4px 15px;
+    border-radius: 10px;
+} */
+ul a li:hover{
+    background-color: rgb(198, 164, 230);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+}
+ul li .nav-link{
+    list-style: none;
+    margin: 0px 5px;
+    padding: 4px 13px ;
+    border-radius: 2px;
+    color: white;
+}
+.offcanvas-body ul li .nav-link.active {
+    background-color: blue;
+    /* margin: -2px 5px;
+    padding: 4px 13px ; */
+  }
+@media (max-width:781px){
+    .student_profile .nameinfo{
+        width: 80px;
+    }
+    .student_profile .nameinfo h6{
+        margin-bottom: 0px;
+        font-size: 14px;
+    }
+    .student_profile .nameinfo p{
+        margin: 0px 0px;
+        font-size: 11px;
+    }
+    .namesection .dateandname p{
+        font-size: 11px;
+    }
+    .namesection .dateandname h1{
+        font-size: 14px;
+    }
+    .namesection .dateandname{
+        color: white;
+        left: 0;
+        margin: 10px 0px;
+        padding: 0px 4px;
+    
+        /* margin-left: -45px; */
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        gap: 10px;
+    }
+    .namesection img{
+        /* width: 20vw; */
+        height: 150px;
+        width: 110px;
+    }
+}

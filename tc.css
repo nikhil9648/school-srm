@@ -1,0 +1,131 @@
+.tranfer img{
+    /* width: 70vw; */
+    /* z-index: 1; */
+   /* height: 900px; */
+   position: fixed;
+   opacity: 0.08;
+   /* left: 400; */
+   /* right: 160px;
+   top: 220px;
+   text-align: center; */
+   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+        /* position: absolute; */
+
+}
+.tranfer .logo{
+    /* position: sticky; */
+}
+.tc{
+    /* width: 98vw; */
+    border: 1px solid black;
+    margin-left: 5px;
+    /* background-image: url('./img/logo.png'); */
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+
+/* backdrop-filter: opacity(-15px); */
+
+    /* opacity: 0.65; */
+    /* z-index: 1; */
+   
+}
+.tc .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    /* position: relative; */
+}
+.tc .header img{
+    width: 120px;
+    height: 120px;
+    /* position: ; */
+    /* left:0; */
+}
+.tc .header div h1{
+    margin-bottom: 0px;
+}
+.tc .header div{
+    line-height: 0.5;
+    text-align: center;
+}
+.tc .tcname{
+    height: 30px;
+    text-align: center;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    color: white;
+    margin-top: -8px;
+    margin-bottom: 3px;
+    background-color: rgb(57, 180, 57);
+}
+.school_detail{
+    margin-bottom: -30px;
+    
+
+}
+.school_detail .rows{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 13px;
+    /* line-height: 1; */
+    /* margin: -10px 0px; */
+    margin-bottom: -15px;
+}
+.details{
+    display: flex;
+    margin: -17px 2px;
+    font-size: 13px;
+}
+.details .sno{
+    width: 17px;
+}
+.details .question{
+    width: 700px;  
+}
+.details .answer{
+    width: 300px;
+    display: flex;
+    justify-content:left;
+    align-items: center;
+}
+.answer p input{
+    font-size: 13px;
+    width: 450px;
+    /* border: none; */
+}
+.signature{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin: 0px 5px;
+    margin-top: 35px;
+    margin-bottom: 3px;
+   
+}
+
+/* tc transfer certificate page */
+.generate_tc{
+    padding: 10px;
+    /* margin: auto; */
+    margin-left: 50px;
+}
+.generate{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 20px;
+}
+h2{
+    color: rgb(15, 112, 35);
+    /* text-decoration:underline; */
+}
