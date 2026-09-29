@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body{
     font-family: "Poppins", serif;
@@ -705,4 +706,497 @@ iframe {
     .attendence_table{
         width: 50vw;
     }
+=======
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    font-family: "Poppins", serif;
+}
+.container1{
+    max-width:100vw ;
+    height: 45px;
+    background-color: #003255;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    padding: 0px 20px;
+    align-items: center;
+}
+.container1 div .btn{
+    margin-left: 5px;
+    padding: 4px 8px;
+}
+.container2{
+    max-width: 100vw;
+    display: flex;
+    /* justify-content:center; */
+    height: 100px;
+    align-items: center;
+    /* margin: auto; */
+    gap: 8vw;
+    background-color: #d5edf3;
+}
+.container2 img{
+    width: 110px;
+    height: 110px;
+    margin-left: 16vw;
+    margin-top: 3px;
+    
+}
+.container2 .schoolnamesrm{
+    line-height: 0.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(80, 60, 102);
+    margin-right: 2vw;
+}
+.container2 .schoolnamesrm h1{
+    font-weight: 1500;
+    font-size: 50px;
+}
+.container2 .schoolnamesrm p{
+    font-size: 18px
+}
+.sidebar{
+    max-height: 100%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    display:none;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    align-items: flex-start;
+    width: 250px;
+    position: fixed;
+    background-color: black;
+}
+.about p{
+    width:78vw;
+    justify-content:center;
+    margin:auto;
+    color:rgb(191, 167, 167);
+    font-size:18px;
+}
+.sidebar ul li svg{
+    width: 40px;
+}
+.sidebar ul li{
+    list-style: none;
+    width: 100%;
+    /* padding: 0px 15px; */
+    margin: 20px 5px;
+}
+.sidebar ul li a{
+    color: white;
+    text-decoration: none;
+}
+.sidebar ul li a:hover{
+    color: red;
+}
+.sidebar ul li .nav-link{
+    color: white;
+    padding: 4px 15px;
+    border-radius: 10px;
+}
+.container3{
+    max-width: 100vw;
+    height: 35px;
+    background-color: #4dc3cf;
+}
+.container3 ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container3 ul li .nav-link{
+    list-style: none;
+    margin: 0px 5px;
+    padding: 4px 13px ;
+    border-radius: 2px;
+    color: white;
+}
+.container3 ul li:hover{
+    background-color: blue;
+    color: white;
+}
+ul li .nav-link.active {
+    background-color: blue;
+    /* margin: -2px 5px;
+    padding: 4px 13px ; */
+  }
+.container3 ul li svg{
+    width: 22px;
+}
+.container3 ul li a{
+    color:  white;
+    font-size: 18px;
+    text-decoration: none;
+}
+.links{
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: white;
+    border-radius: 0px 10px 10px 0px;
+    top: 280px;
+    z-index: 1;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
+}
+.links a svg{
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+}
+.links a:hover{
+    background-color: black;
+}
+.table{
+    width: 80vw;
+    margin: auto;
+}
+.photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 600px;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+}
+.photo::-webkit-scrollbar{
+    width: 0px;
+}
+.photo div{
+    width: 350px;
+    height: 300px;
+}
+.photo div img{
+    width: 350px;
+    height: 300px;
+    border-radius: 10px;
+}
+.photo div video{
+    
+    width: 350px;
+    height: 300px;
+    border-radius: 10px;
+} 
+.contact{
+    max-width: 100vw;
+    height: 180px;
+    background-image: url('img/2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.contact div{
+    max-width: 100vw;
+    height: 180px;
+    background-color: black;
+    opacity: 0.55;
+}
+.contact div h2{
+    color: white;
+    padding: 80px;
+    z-index: 30;
+}
+.contactsection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 30px;
+}
+.address div{
+    display: flex;
+    gap: 10px;
+}
+.address div svg{
+    width: 12px;
+}
+
+.location iframe{
+    width: 600px;
+    height: 300px;
+}
+.sectionerp{
+    display: flex;
+}
+.sectionerp .section1{
+    height: 100vh;
+    width: 230px;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    background-color: #b0cbf4;
+    border-right: 1px solid rgb(69, 68, 68);
+    border-radius:0px 10px 10px 0px;
+}
+.section1 div .heading{
+    font-weight: 00;
+    font-size: 36px;
+    
+}
+.section1 div span svg{
+    width: 50px;
+}
+.section1 ul li{
+    list-style: none;
+    /* border: 1px solid blueviolet; */
+    border-radius: 10px;
+    padding: 10px 25px;
+    margin: 5px;
+    margin-left: -25px;
+}
+.section1 ul li:hover{
+    background-color: rgb(227, 212, 241);
+    color: blueviolet;
+}
+ul .nav-link.active {
+    background-color: rgb(227, 212, 241);
+    color: blueviolet;
+  }
+.section1 ul li span{
+    padding-right: 10px;
+}
+.section1 ul li span svg{
+    width: 20px;
+}
+.sectionerp .section2{
+    position: sticky;
+    right: 0;
+    width: 83vw;
+}
+input::placeholder{
+    font-size: 16px;
+}
+.logout{
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+    /* top: 90px;
+    left: 400px; */
+}
+
+/* Id card css */
+
+.idmain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+}
+.idmain .id{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 60vw;
+}
+.id .idcard{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 260px;
+    height: 432.8px;
+    position: relative;
+    
+}
+.idcard .img{
+    width: 100px;
+    height: 40px;
+    position:absolute;
+    right: 0px;
+    bottom: 25px;
+    /* top: 0; */
+}
+.id .idcard header{
+    background-color: rgb(142, 193, 240);
+    color: white;
+    border-radius: 10px 10px 0px 0px;
+    padding: 5px;
+    padding-bottom: 0px;
+    /* line-height: 0.1; */
+    /* position: relative; */
+}
+.id .idcard header .schoolcode{
+    display: flex;
+    justify-content: space-between;
+}
+.id .idcard header .schoolcode p{
+    font-size: 11px;
+    padding-top: 2px;
+}
+.id .idcard header .nameschool{
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin:0px 3px ;
+    margin-top: -12px;
+}
+.id .idcard header .nameschool img{
+    width: 82px;
+    height: 82px;
+}
+.id .idcard header .nameschool div h4{
+    font-size: 22px;
+    line-height: 1;
+}
+.id .idcard header .nameschool div p{
+    font-size: 13px;
+    margin-top: -7px;
+    line-height: 1.2;
+    text-align: center;
+}
+.id .idcard .profilei{
+    width: 110px;
+    height: 130px;
+    border-radius: 10px;
+    margin: auto;
+    border: 4px solid rgb(204, 86, 220);
+}
+.id .idcard .profilei img{
+    width: 103px;
+    height: 124px;
+    margin: auto;
+    position: absolute;
+    /* margin: 10px; */
+    border-radius: 10px;
+}
+.id .idcard section{
+    background-color: #415462;
+    color: rgb(255, 255, 255);
+    padding: 5px 10px 0px 10px;
+    /* padding-bottom: -20px; */
+}
+.id .idcard section div span{
+    font-size: 12px;
+}
+
+.id .idcard section .nameclass p{
+    margin-top: -22px;
+}
+.id .idcard section .nameaddress p{
+    margin-top: -22px;
+}
+.id .idcard section .nameclass{
+    width: 150px;
+}
+.id .idcard section .nameaddress{
+    width: 265px;
+}
+.id .idcard .principalsign{
+    background-color: rgb(142, 193, 240);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-bottom: -100px; */
+    height: 30px;
+    padding: 0px 8px;
+    border-radius: 0px 0px 10px 10px;
+}
+.id .idcard .principalsign p{
+    font-size: 12px;
+    color: red;
+    padding-top: 10px;
+}
+@media (max-width:1064px){
+    .container2 .schoolnamesrm h1{
+        font-weight: 1500;
+        font-size: 28px;
+    }
+}
+@media (max-width:781px){
+    .hideonmobile{
+        display: none;
+    }
+    .sidebar{
+       max-width:100vw;
+    }
+    .showonmobile{
+        display:block;
+    }
+    .location iframe{
+        width: 100vw;
+        height: 300px;
+    }
+    .sectionerp{
+        max-width: 100vw;
+    }
+    .container1 h5{
+        font-size: 14px;
+    }
+    .logout{
+        position: fixed;
+        z-index: 1;
+        width: 500px;
+        margin: auto;
+        top: 90px;
+        /* left: 400px; */
+    }
+    .container2 .schoolnamesrm{
+        line-height: 0.5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: rgb(80, 60, 102);
+        
+    }
+    .container2 .schoolnamesrm h1{
+        font-weight: 1500;
+        font-size: 28px;
+    }
+    .container2 .schoolnamesrm p{
+        font-size: 18px
+    }
+    .namesection .dateandname p{
+        font-size: 11px;
+    }
+    .namesection .dateandname h1{
+        font-size: 14px;
+    }
+}
+@media (max-width:524px){
+    .container2 .schoolnamesrm h1{
+        font-weight: 1500;
+        font-size: 20px;
+    }
+    .container2 .schoolnamesrm p{
+        font-size: 12px
+    }
+    .hideonmobile{
+        display: none;
+    }
+    .sidebar{
+       max-width:100vw;
+    }
+    .showonmobile{
+        display:block;
+    }
+}
+@media (max-width:389px){
+    .container2 .schoolnamesrm h1{
+        font-weight: 1500;
+        font-size: 16px;
+    }
+    .container2 .schoolnamesrm p{
+        font-size: 8px
+    }
+}
+@media (min-width:781px){
+    .hideondesktop{
+        display: none;
+    }
+    .attendence_table{
+        width: 50vw;
+    }
+>>>>>>> 4beebbdc82d2827daeeae769b710cb7c6b78c248
 }
